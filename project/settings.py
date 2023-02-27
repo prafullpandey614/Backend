@@ -18,7 +18,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
-
+import json
+with open('project/secrets.json') as f:
+    SECRETS = json.load(f)
+# now we need to assign SECRET_KEY to data from the file
+SECRET_KEY = SECRETS['SECRET_KEY']
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-xv(j4-4+qxo@f=vpr7skh$xn==hi#ea@hz44@hd4asmhyf8$=^"
 

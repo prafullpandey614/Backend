@@ -2,3 +2,5 @@ env
 env/
 .vscode/
 .env
+project/secrets.json
+project/secrets.json/
