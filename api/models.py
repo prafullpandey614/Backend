@@ -14,7 +14,7 @@ class UserProfile(AbstractBaseUser):
     email_mobile = models.CharField(max_length=255,unique=True,default='',validators=[validate_email_mobile])
     username = models.CharField(max_length=255,unique=True,default='')
     user_image    = models.ImageField(
-                                    default='avatar/default_user_image1.jpg',
+                                    default='',
                                     upload_to = "images"
                                     )
     tagline       = models.CharField(max_length=2000,default='',blank=True)
@@ -48,4 +48,8 @@ class Answers(models.Model):
     upvotes = models.IntegerField(default=0)
     downvotes = models.IntegerField(default=0)
     is_best = models.BooleanField(default=False)
-
+    
+class NewUserOTP(models.Model):
+    email_mobile = models.CharField(max_length=255,unique=True,default='',validators=[validate_email_mobile])
+    otp          = models.IntegerField(default=1)
+    created_on   = models.DateTimeField(auto_now=True)
