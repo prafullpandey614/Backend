@@ -71,3 +71,5 @@ class NewUserOTP(models.Model):
     otp          = models.IntegerField(default=1)
     created_on   = models.DateTimeField(auto_now=True)
 
+class NewModel(models.Model):
+    name = models.CharField(max_length=10)
