@@ -74,3 +74,9 @@ class NewUserOTP(models.Model):
 
 class NewModel(models.Model):
     name = models.CharField(max_length=10)
+class FirstOne(models.Model):
+    name= models.CharField(max_length=19)
+class SecondOne(models.Model):
+    name= models.CharField(max_length=19)
+class ThirdOne(models.Model):
+    name= models.CharField(max_length=19)
