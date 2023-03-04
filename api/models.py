@@ -82,3 +82,5 @@ class ThirdOne(models.Model):
     name= models.CharField(max_length=19)
 class Mone(models.Model):
     name = models.CharField(max_length=1)
+class Another(models.Model):
+    name = models.CharField(max_length=10)
