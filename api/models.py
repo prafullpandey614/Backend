@@ -1,13 +1,28 @@
 from pyexpat import model
-
+import regex as re
 import uuid
 from django.db import models
 from django.utils import timezone
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import AbstractBaseUser,BaseUserManager
 # Create your models here.
 from .validators import (
     validate_email_mobile
 )
+
+class UserManger(BaseUserManager):
+    
+    def create_user(self,email_mobile,username,password):
+        if re.match(r"^\S+@\S+\.\S+$",email_mobile):
+            email_mobile = UserManger.normalize_email(email_mobile)
+        user = self.model(
+            email_mobile = email_mobile,
+            username = username,
+        )
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+        
+
 class UserProfile(AbstractBaseUser):
     # fields like username, email, password, etc.
     profile_id = models.UUIDField(primary_key=True,default=uuid.uuid4)
@@ -30,6 +45,8 @@ class UserProfile(AbstractBaseUser):
 
     USERNAME_FIELD  = 'email_mobile'
     REQUIRED_FIELDS = ['username']
+    objects = UserManger()
+    
 class Tags(models.Model):
     name = models.CharField(max_length=20)
     
@@ -53,3 +70,4 @@ class NewUserOTP(models.Model):
     email_mobile = models.CharField(max_length=255,unique=True,default='',validators=[validate_email_mobile])
     otp          = models.IntegerField(default=1)
     created_on   = models.DateTimeField(auto_now=True)
+
