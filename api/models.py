@@ -1,4 +1,5 @@
 from pyexpat import model
+from unicodedata import name
 import regex as re
 import uuid
 from django.db import models
