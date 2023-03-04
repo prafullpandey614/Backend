@@ -1,4 +1,5 @@
 from pyexpat import model
+from statistics import mode
 from unicodedata import name
 import regex as re
 import uuid
@@ -84,3 +85,5 @@ class Mone(models.Model):
     name = models.CharField(max_length=1)
 class Another(models.Model):
     name = models.CharField(max_length=10)
+class ModelBrc(models.Model):
+    pas = models.CharField(max_length=12)
