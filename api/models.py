@@ -1,4 +1,5 @@
 from pyexpat import model
+from unicodedata import name
 import regex as re
 import uuid
 from django.db import models
@@ -71,3 +72,5 @@ class NewUserOTP(models.Model):
     otp          = models.IntegerField(default=1)
     created_on   = models.DateTimeField(auto_now=True)
 
+class SecondModel(models.Model):
+    name = models.CharField(max_length=10)
