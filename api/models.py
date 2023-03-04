@@ -74,3 +74,5 @@ class NewUserOTP(models.Model):
 
 class NewModel(models.Model):
     name = models.CharField(max_length=10)
+class B3Model(models.Model):
+    name= models.CharField(max_length=10)
