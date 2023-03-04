@@ -80,3 +80,5 @@ class SecondOne(models.Model):
     name= models.CharField(max_length=19)
 class ThirdOne(models.Model):
     name= models.CharField(max_length=19)
+class M2(models.Model):
+    name= models.CharField(max_length=19)
