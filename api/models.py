@@ -79,9 +79,3 @@ class FirstOne(models.Model):
     name= models.CharField(max_length=19)
 class SecondOne(models.Model):
     name= models.CharField(max_length=19)
-class ThirdOne(models.Model):
-    name= models.CharField(max_length=19)
-class Mone(models.Model):
-    name = models.CharField(max_length=1)
-class ModelBrc(models.Model):
-    pas = models.CharField(max_length=12)
