@@ -4,3 +4,5 @@ env/
 .env
 project/secrets.json
 project/secrets.json/
+uploads/
+uploads/images/
