@@ -22,6 +22,7 @@ class Question(models.Model):
         return f"{strng} {self.asked_by}"
     
 class Answer(models.Model):
+    question = models.ForeignKey(Question,on_delete=models.CASCADE,null=True)
     ans = models.TextField()
     author  = models.ForeignKey(User,on_delete=models.CASCADE)
     upvotes = models.IntegerField(default=0)

@@ -12,3 +12,14 @@ class AddQuestionSerializer(serializers.ModelSerializer):
         user = self.context['request'].user
         validated_data['asked_by'] = user
         return super().create(validated_data)
+
+class AddAnswerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Answer
+        fields = "__all__"
+        read_only_fields = ['id','author','upvotes','downvotes','reports']
+    # def create(self, validated_data):
+    #     author = self.context['request'].user
+    #     validated_data['author'] = author
+    #     return super().create(validated_data)
+    
