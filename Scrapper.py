@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 from facebook_scraper import get_profile
 from truecallerpy import search_phonenumber
 import pandas as pd
-
+#abandoned
 def initialize_driver():
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--disable-dev-shm-usage")
